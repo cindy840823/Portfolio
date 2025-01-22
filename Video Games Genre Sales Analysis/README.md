@@ -10,7 +10,7 @@ This project analyzes the sales performance of video games based on various attr
 - Predict game success using machine learning models.
 
 ## Dataset
-- **Source**: Kaggle dataset "Video Games Sales (22 Dec 2016)"
+- **Source**: [Kaggle Dataset - Video Games Sales as at 22 Dec 2016](https://www.kaggle.com/datasets/xtyscut/video-games-sales-as-at-22-dec-2016csv?resource)
 - **Size**: 16,717 instances, 16 attributes.
 - **Attributes**: Includes game name, platform, publisher, year of release, genre, sales by region (NA, EU, JP), global sales, critic score, user score, developer, and rating.
 - **Preprocessing**:
