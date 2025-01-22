@@ -71,7 +71,7 @@ This project analyzes the sales performance of video games based on various attr
 - Explore advanced machine learning models for better predictions.
 
 ## References
-- Kaggle Dataset: [Video Games Sales (22 Dec 2016)](https://www.kaggle.com)
+- Kaggle Dataset: [Video Games Sales (22 Dec 2016)](https://www.kaggle.com/datasets/xtyscut/video-games-sales-as-at-22-dec-2016csv?resource)
 - "Top 10 Biggest Video Game Companies in the World" - All Top Everything
 - "12 Most Popular Video Games in 2021" - Fossbytes
 - Various articles from Statista and industry reports.
