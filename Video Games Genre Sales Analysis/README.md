@@ -63,7 +63,7 @@ This project analyzes the sales performance of video games based on various attr
 ## Files
 - `Video_Games_Sales_Analysis.ipynb`: Jupyter Notebook containing the code for analysis and modeling.
 - `data/`: Contains the dataset used for this project.
-- [Analyzing Game Genres and Their Success.pdf](./Video%20Games%20Genre%20Sales%20Analysis/Analyzing_Game_Genres_and_Their_Success.pdf): A detailed report providing insights and analysis behind this project.
+- [Analyzing Game Genres and Their Success (PDF Report)](./Video%20Games%20Genre%20Sales%20Analysis/Analyzing%20Game%20Genres%20and%20Their%20Success.pdf): A detailed report providing insights and analysis behind this project.
 
 ## Future Work
 - Expand the dataset to include recent sales data for improved model accuracy.
