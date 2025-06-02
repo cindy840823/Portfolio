@@ -1,6 +1,6 @@
 # Lazada Thailand Health Product Analysis
 
-Hi! This is a data project where I explored health and wellness products sold on Lazada Thailand. I wanted to see what types of products sell best, what pricing looks like across categories, and which cities in Thailand are most active in buying these items online.
+This is a data project where I explored health and wellness products sold on Lazada Thailand. I wanted to see what types of products sell best, what pricing looks like across categories, and which cities in Thailand are most active in buying these items online.
 
 It was a fun way to practice data cleaning, visualizations, and finding real insights that a business might care about.
 
