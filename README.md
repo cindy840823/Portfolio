@@ -75,7 +75,7 @@ Welcome to my Data Science Portfolio! This repository showcases a collection of 
 
 ---
 
-### 8. [Real-Time Bitcoin Sentiment Analysis Using txtai](https://github.com/cindy840823/tutorials/tree/main/DATA605/Spring2025/projects/TutorTask134_Spring2025_RealTime_Bitcoin_Sentiment_Analysis_Using_txtai)
+### 8. ### 8. [Real-Time Bitcoin Sentiment Analysis Using txtai](https://github.com/cindy840823/tutorials/tree/TutorTask134_Spring2025_RealTime_Bitcoin_Sentiment_Analysis_Using_txtai)
 - **Description**: Built a real-time sentiment analysis system for Bitcoin-related news and tweets using natural language processing.
 - **Key Features**:
   - Used `txtai` for semantic search and embeddings
