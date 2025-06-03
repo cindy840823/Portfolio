@@ -75,6 +75,17 @@ Welcome to my Data Science Portfolio! This repository showcases a collection of 
 
 ---
 
+### 8. [Real-Time Bitcoin Sentiment Analysis Using txtai](./tutorials/DATA605/Spring2025/projects/TutorTask134_Spring2025_RealTime_Bitcoin_Sentiment_Analysis_Using_txtai)
+- **Description**: Built a real-time sentiment analysis system for Bitcoin-related news and tweets using natural language processing.
+- **Key Features**:
+  - Used `txtai` for semantic search and embeddings
+  - Applied ARIMA for time series forecasting on sentiment scores
+  - Pulled and analyzed live Twitter/news sentiment in real time
+  - Dockerized the entire pipeline for easy deployment
+- **Tools**: Python, txtai, ARIMA, Docker, Jupyter
+
+--- 
+
 ## Skills Demonstrated
 - **Data Preprocessing**: Cleaning, feature engineering, and dealing with imbalanced datasets.
 - **Machine Learning**: Model training, evaluation, and hyperparameter tuning.
