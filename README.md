@@ -64,7 +64,7 @@ Welcome to my Data Science Portfolio! This repository showcases a collection of 
 
 ---
 
-### 7. [Lazada Health Product Review Analysis Thailand] (./Lazada_Health_Product_Analysis)
+### 7. [Lazada Health Product Analysis] (./Lazada_Health_Product_Analysis)
 - **Description**: Analyzing health and wellness products sold on Lazada Thailand to uncover trends in pricing, demand, and regional sales.
 - **Key Features**:
   - Cleaned and prepared real-world e-commerce product data from Thailand
