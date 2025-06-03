@@ -64,6 +64,17 @@ Welcome to my Data Science Portfolio! This repository showcases a collection of 
 
 ---
 
+### 7. [Lazada Health Product Review Analysis Thailand] (./Lazada_Health_Product_Analysis)
+- **Description**: Analyzing health and wellness products sold on Lazada Thailand to uncover trends in pricing, demand, and regional sales.
+- **Key Features**:
+  - Cleaned and prepared real-world e-commerce product data from Thailand
+  - Visualized sales performance by product category and location
+  - Compared pricing across product types and analyzed customer engagement
+  - Identified top-performing products and buyer behavior by city
+- **Tools**: Python, pandas, seaborn, matplotlib.
+
+---
+
 ## Skills Demonstrated
 - **Data Preprocessing**: Cleaning, feature engineering, and dealing with imbalanced datasets.
 - **Machine Learning**: Model training, evaluation, and hyperparameter tuning.
