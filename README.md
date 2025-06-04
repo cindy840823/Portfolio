@@ -91,6 +91,7 @@ Welcome to my Data Science Portfolio! This repository showcases a collection of 
 - **Visualization**: Generating insightful plots and dashboards.
 - **Programming**: Python, SQL, Jupyter Notebooks.
 - **Collaboration**: Team projects and documentation for reproducibility.
+- **Bonus Skills**: NLP, real-time data pipelines, semantic search, Docker, forecasting.
 
 ## How to Explore
 Each project folder contains:
