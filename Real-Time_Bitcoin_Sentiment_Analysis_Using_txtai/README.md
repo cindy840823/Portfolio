@@ -31,13 +31,13 @@ This notebook reads the NewsAPI key from an environment variable rather than har
 export NEWS_API_KEY="your_newsapi_key_here"
 ```
 
-Then run the notebook (`txtai_API_updated.ipynb`) top to bottom. `txtai_utils.py` contains the helper functions (`fetch_bitcoin_headlines`, `analyze_sentiment`, `run_arima_forecast`) imported by the notebook.
+Then run the notebook (`txtai_API.ipynb`) top to bottom. `txtai_utils.py` contains the helper functions (`fetch_bitcoin_headlines`, `analyze_sentiment`, `run_arima_forecast`) imported by the notebook.
 
 ## Files
 
 | File | Description |
 |---|---|
-| `txtai_API_updated.ipynb` | Main notebook — full pipeline from data fetch to forecast |
+| `txtai_API.ipynb` | Main notebook — full pipeline from data fetch to forecast |
 | `txtai_utils.py` | Helper functions for headline fetching, sentiment scoring, and ARIMA forecasting |
 
 ## Possible Extensions
