@@ -75,7 +75,7 @@ Welcome to my Data Science Portfolio! This repository showcases a collection of 
 
 ---
 
-### 8. [Real-Time Bitcoin Sentiment Analysis Using txtai](./Real-Time Bitcoin Sentiment Analysis Using txtai)
+### 8. [Real-Time Bitcoin Sentiment Analysis Using txtai](./Real-Time_Bitcoin_Sentiment_Analysis_Using_txtai)
 - **Description**: Built a real-time pipeline analyzing Bitcoin-related news sentiment and merging it with historical price data to explore sentiment as a leading indicator for short-term price movements.
 - **Key Features**:
   - Used `txtai` for semantic sentiment scoring on live Bitcoin news headlines (via NewsAPI)
