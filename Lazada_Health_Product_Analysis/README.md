@@ -1,58 +1,71 @@
-# Lazada Thailand Health Product Analysis
+# Lazada Thailand Health & Wellness Products Analysis
 
-This is a data project where I explored health and wellness products sold on Lazada Thailand. I wanted to see what types of products sell best, what pricing looks like across categories, and which cities in Thailand are most active in buying these items online.
+**Business question:** If you were selling health and wellness products on Lazada Thailand, which categories and price points move the most volume, and where are the successful sellers based?
 
-It was a fun way to practice data cleaning, visualizations, and finding real insights that a business might care about.
+**▶ [Open the interactive Tableau dashboard](https://public.tableau.com/views/LazadaThailandHealthProductsDashboard/LazadaDashboard)**
 
----
-
-## What I wanted to learn
-
-I had a few questions I was curious about:
-- Are some types of health products more expensive than others?
-- Which categories or items sell the most?
-- Where are most sellers located, and which cities drive the most sales?
-- Do expensive products get more reviews?
-- What can we learn about shoppers in different cities?
+[![Lazada Tableau dashboard](https://public.tableau.com/static/images/La/LazadaThailandHealthProductsDashboard/LazadaDashboard/1.png)](https://public.tableau.com/views/LazadaThailandHealthProductsDashboard/LazadaDashboard)
 
 ---
 
-## Where the data came from
+## Key Findings
 
-I used a dataset from [Kaggle](https://www.kaggle.com/datasets/wuttipats/lazada-thailand-health-products-dataset) that includes product listings from Lazada Thailand. It has product names, prices, categories, reviews, how many units were sold, and shop locations (Thai cities). The product names are mostly in Thai, but some English is included too.
+1. **Low prices drive volume.** Products under ฿300 are 50% of listings but 81% of units sold. Products above ฿1,000 are 12% of listings but only 1% of units.
+2. **Protein is the biggest category**, leading on units sold and making up 23% of estimated revenue. Fat Blockers & Burners and Whitening follow on units.
+3. **Sellers cluster in Greater Bangkok**, which ships 72% of all units. Khon Kaen ranks #2, but 70% of its volume comes from one brand's two protein products.
+4. **Reviews are a reliable proxy for sales** (Spearman correlation 0.96). That matters because 46% of listings show no sales counter.
 
----
-
-## What tools I used
-
-This whole project was done in Google Colab using Python.  
-I used:
-- pandas for cleaning and handling data  
-- seaborn and matplotlib for charts  
-- GitHub to keep everything organized
+![Share of products vs. share of units sold by price band](images/price_band_share.png)
 
 ---
 
-## What I found
+## Data Quality Issues I Found and Fixed
 
-### 1. Some categories are priced much higher than others  
-Skin care products and acne treatments had the highest average prices. Herbal and traditional remedies were usually the cheapest. It shows that some health products are considered more “premium” and others are more accessible.
+My first version of this analysis reported the wrong best-selling categories. Two problems in the raw data caused it:
 
-### 2. Multivitamins and skincare items sold the most overall  
-These categories were at the top when I looked at total units sold. This suggests a strong market demand for daily wellness and beauty items in Thailand.
+| Issue | What went wrong | Fix |
+|---|---|---|
+| **Duplicate listings** | The 68,499 scraped rows contain only 2,497 unique products; each was captured 27 times on average (up to 115). Every total was inflated. | Kept one row per product: the snapshot with the highest cumulative sales. |
+| **Number parsing bug** | Sales are stored as Thai text such as `5,786 ชิ้น`. A regex that took the first run of digits stopped at the comma, so 5,786 became 5 and `9,999+` became 9. Top sellers were undercounted the most. | Removed thousands separators, handled `k`, and flagged `9,999+` / `100k+` as lower bounds. Missing values stay missing, not 0. |
 
-### 3. Bangkok was the busiest city for sales  
-Most product sales came from Bangkok. Other top cities were Pathum Thani and Nonthaburi. These are large urban areas where online shopping is likely more common.
-
-### 4. Many of the top-selling products were affordable herbal remedies  
-I created a table of the top 10 best-selling items. A lot of them cost less than 50 baht and sold in high volume. These seem to be everyday, trusted products that people buy often.
-
-### 5. Expensive products sometimes get more reviews, but not always  
-I made a scatter plot comparing price and number of reviews. There’s a small trend upward, but it’s not a strong pattern. Some cheap products also got a lot of attention.
-
-### 6. Different cities prefer different types of products  
-I made a heatmap that shows which categories sold the most in each city. Bangkok had the highest sales in every category, but other cities like Chiang Mai showed more interest in specific items like acne care. This kind of breakdown could help businesses market better in different regions.
+After the fixes, the top categories changed from Skin Nourishment and Multivitamins to **Protein, Fat Blockers & Burners and Whitening**.
 
 ---
 
-Let me know if you'd like help using this project or if you have feedback. Thanks for reading!
+## Dashboard
+
+Built in Tableau Public from `lazada_health_products_clean.csv`:
+
+- **KPIs:** 2,497 products · 1.91M units sold · ฿404.1M estimated revenue · ฿299 median price
+- **Category ranking:** top 10 categories by units sold, colored by estimated revenue
+- **Price band share:** share of products vs. share of units sold in each price band
+- **Seller location:** top 10 seller provinces, Greater Bangkok vs. other provinces
+- **Filter:** Region Group, applied to every chart
+
+---
+
+## Data
+
+- **Source:** [Kaggle – Lazada Thailand Health Products](https://www.kaggle.com/datasets/wuttipats/lazada-thailand-health-products-dataset): product name, category (30 health categories), price, units sold, reviews, and seller province
+- **Grain after cleaning:** one row per product
+- `Shop Location` is the **seller's** province, not the buyer's
+
+## Limitations
+
+- Units sold are cumulative lifetime counts with no dates, so this shows which products have sold the most, not current trends.
+- 52 products display only `9,999+` or `100k+`, so all totals are lower bounds.
+- Revenue is estimated as units sold × current price and ignores discounts and price changes.
+
+---
+
+## Files
+
+| File | Description |
+|---|---|
+| `Lazada_Health_Product_Analysis.ipynb` | Data-quality checks, cleaning, and the analysis behind each dashboard chart |
+| `health_and_wellness_cleaned.csv` | Raw scraped data (68,499 rows) |
+| `lazada_health_products_clean.csv` | Cleaned data, one row per product (2,497 rows); the dashboard's data source |
+| `images/` | Charts exported from the notebook |
+
+## Tools
+Python (pandas, NumPy, matplotlib) · Tableau Public

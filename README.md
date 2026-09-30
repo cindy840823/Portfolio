@@ -4,18 +4,18 @@ MS in Data Science (University of Maryland, College Park) · BS in Business Admi
 
 I turn raw business data into answers people can act on: cleaning messy real-world datasets, querying them with SQL and Python, and explaining what the numbers mean for the business. This repository collects my analytics and data science projects, with the business-focused analyses first.
 
-**Core tools:** Python (pandas, matplotlib, seaborn, scikit-learn, statsmodels) · SQL (SQL Server) · Jupyter / Google Colab
+**Core tools:** Python (pandas, matplotlib, seaborn, scikit-learn, statsmodels) · SQL (SQL Server) · Tableau Public · Jupyter / Google Colab
 
 ---
 
 ## Business & Analytics Projects
 
-### 1. [Lazada Thailand Health Product Analysis](./Lazada_Health_Product_Analysis)
-**Question:** Which health and wellness products sell best on Lazada Thailand, how does pricing vary by category, and which cities drive demand?
-- Cleaned real-world e-commerce listings (mostly Thai-language product names) and analyzed price, units sold, reviews, and seller city
-- Found that Bangkok led sales in every category, while other cities showed distinct preferences (for example, Chiang Mai's interest in acne care)
-- Many top sellers were low-cost herbal remedies under 50 baht, bought in high volume
-- **Tools:** Python, pandas, seaborn, matplotlib
+### 1. [Lazada Thailand Health Product Analysis](./Lazada_Health_Product_Analysis) · [▶ Tableau dashboard](https://public.tableau.com/views/LazadaThailandHealthProductsDashboard/LazadaDashboard)
+**Question:** Which health product categories and price points move the most volume on Lazada Thailand, and where are the top sellers based?
+- Found and fixed two data-quality errors: 68,499 scraped rows held only 2,497 unique products, and a parsing bug read "5,786" as 5; the fixes changed which categories came out on top
+- Products under ฿300 are 50% of listings but 81% of units sold; Protein leads units and 23% of estimated revenue
+- Built an interactive Tableau Public dashboard with KPIs, category and price-band views, and a region filter
+- **Tools:** Python (pandas, matplotlib), Tableau Public
 
 ### 2. [Video Games Genre Sales Analysis](./Video_Games_Genre_Sales_Analysis)
 **Question:** What separates a hit game (1M+ global sales) from the rest?
@@ -62,8 +62,8 @@ I turn raw business data into answers people can act on: cleaning messy real-wor
 ---
 
 ## Skills Demonstrated
-- **Data cleaning & preparation:** missing values, time-series gaps, categorical encoding, class imbalance
-- **Analysis & communication:** exploratory analysis, segment comparisons, business recommendations
+- **Data cleaning & preparation:** deduplication, text-to-number parsing, missing values, time-series gaps, categorical encoding, class imbalance
+- **Analysis & communication:** exploratory analysis, segment comparisons, business recommendations, interactive dashboards (Tableau)
 - **SQL & data modeling:** star-schema design, fact and dimension tables, analytical queries
 - **Statistics & ML:** classification, model evaluation beyond accuracy (precision, recall, ROC-AUC, baselines), ARIMA forecasting, PCA
 - **NLP:** sentiment analysis, topic modeling
