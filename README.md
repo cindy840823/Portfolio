@@ -1,111 +1,74 @@
-# Data Science Portfolio
+# Te-Hsin (Cindy) Kung — Data Analytics Portfolio
 
-## Overview
-Welcome to my Data Science Portfolio! This repository showcases a collection of projects I have completed during my journey as a data science enthusiast and graduate student. Each project demonstrates my skills in data analysis, machine learning, and visualization, using real-world datasets and industry-standard tools.
+MS in Data Science (University of Maryland, College Park) · BS in Business Administration, Computer Information Systems (Cal Poly Pomona, Magna Cum Laude)
 
-## Projects
-### 1. [Heart Disease Analysis Project](./Heart_Disease_Analysis_Project)
-- **Description**: Predicting heart disease risk using machine learning models with personal health indicators.
-- **Key Features**:
-  - Data preprocessing and exploratory analysis.
-  - Implementation of multiple models (Logistic Regression, Decision Trees, Random Forest, XGBoost).
-  - Insights and actionable recommendations for reducing heart disease risk.
-- **Tools**: Python, scikit-learn, SMOTE, matplotlib, seaborn.
+I turn raw business data into answers people can act on: cleaning messy real-world datasets, querying them with SQL and Python, and explaining what the numbers mean for the business. This repository collects my analytics and data science projects, with the business-focused analyses first.
+
+**Core tools:** Python (pandas, matplotlib, seaborn, scikit-learn, statsmodels) · SQL (SQL Server) · Jupyter / Google Colab
 
 ---
 
-### 2. [Neural Networks for MNIST Classification](./Neural_Networks_MNIST_Project)
-- **Description**: Implementing and evaluating feedforward and convolutional neural networks to classify handwritten digits from the MNIST dataset.
-- **Key Features**:
-  - Architecture design for FNN and CNN models.
-  - Performance analysis with metrics like accuracy and loss.
-  - Achieved over 95% accuracy using CNNs.
-- **Tools**: Python, TensorFlow, Keras, matplotlib.
+## Business & Analytics Projects
 
----
+### 1. [Lazada Thailand Health Product Analysis](./Lazada_Health_Product_Analysis)
+**Question:** Which health and wellness products sell best on Lazada Thailand, how does pricing vary by category, and which cities drive demand?
+- Cleaned real-world e-commerce listings (mostly Thai-language product names) and analyzed price, units sold, reviews, and seller city
+- Found that Bangkok led sales in every category, while other cities showed distinct preferences (for example, Chiang Mai's interest in acne care)
+- Many top sellers were low-cost herbal remedies under 50 baht, bought in high volume
+- **Tools:** Python, pandas, seaborn, matplotlib
+
+### 2. [Video Games Genre Sales Analysis](./Video_Games_Genre_Sales_Analysis)
+**Question:** What separates a hit game (1M+ global sales) from the rest?
+- Analyzed 16,717 titles across genre, platform, publisher, region (NA, EU, JP), and critic score
+- Found a strong positive link between critic scores and global sales; Action dominates game count and sales but is crowded
+- Built hit/no-hit classifiers and evaluated them against a naive baseline, since only about 17% of titles are hits
+- **Tools:** Python, pandas, scikit-learn, matplotlib, seaborn
 
 ### 3. [Product Sales Data Warehouse](./Product_Sales_Data_Warehouse)
-- **Description**: Designing a data warehouse for product sales analysis.
-- **Key Features**:
-  - SQL schema creation with dimensions (Customers, Products, Stores, etc.) and a fact table.
-  - Querying sales trends, customer behavior, and product performance.
-  - Visualization of schema with an Entity Relationship Diagram (ERD).
-- **Tools**: SQL Server Management Studio, Google Analytics (recommendation).
+**Question:** How should product sales data be structured so the business can analyze trends, products, and customers?
+- Designed a star schema with a `FactProductSales` fact table and Customer, Product, Store, SalesPerson, and Date dimensions
+- Wrote the SQL to build and populate the warehouse, plus an ERD of table relationships and cardinalities
+- Queried sales trends and product performance to recommend seasonal promotions and gift-card campaigns
+- **Tools:** SQL Server (SSMS), SQL
+
+### 4. [Real-Time Bitcoin Sentiment Analysis Using txtai](./Real-Time_Bitcoin_Sentiment_Analysis_Using_txtai)
+**Question:** Can news sentiment help explain short-term Bitcoin price movements?
+- Built a pipeline that pulls live Bitcoin headlines (NewsAPI), scores their sentiment with txtai, and merges them with historical prices (CoinGecko)
+- Cleaned the time series (duplicate dates, daily resampling, forward-filled gaps) and forecast prices 7 days ahead with ARIMA(5,1,2)
+- API keys are loaded from environment variables, not hardcoded
+- **Tools:** Python, txtai, pandas, statsmodels (ARIMA), matplotlib, seaborn
 
 ---
 
-### 4. [Text Mining and Topic Modeling with LSA](./Text_Mining_and_Topic_Modeling_with_LSA)
-- **Description**: Extracting insights from NFT whitepapers using text mining and Latent Semantic Analysis (LSA).
-- **Key Features**:
-  - Preprocessing and vectorizing textual data.
-  - Identifying key topics and trends in the NFT space.
-  - Visualization of word clouds and topic distributions.
-- **Tools**: Python, sklearn, wordcloud, pandas.
+## Machine Learning & NLP Projects
+
+### 5. [Heart Disease Risk Prediction](./Heart_Disease_Analysis_Project) *(team project)*
+- Modeled heart disease risk from 300,000+ CDC BRFSS survey responses, where only about 9% of respondents have heart disease
+- Chose recall on the heart-disease class over raw accuracy: balanced Logistic Regression caught 77% of cases (ROC-AUC 0.83), while Random Forest reached 90% accuracy but caught only 10%
+- **Tools:** Python, scikit-learn, imbalanced-learn (SMOTE), Lasso, matplotlib, seaborn
+
+### 6. [Text Mining and Topic Modeling with LSA](./Text_Mining_and_Topic_Modeling_with_LSA)
+- Applied Latent Semantic Analysis to NFT whitepapers to surface key themes, with a focus on gaming
+- **Tools:** Python, scikit-learn, pandas, wordcloud
+
+### 7. [Binary Classification with PCA](./Binary_Classification_Project)
+- Compared LDA, Decision Tree, k-NN, and SVM on loan-approval data using type 1 and type 2 error rates, with and without PCA
+- **Tools:** Python, scikit-learn, pandas, matplotlib
+
+### 8. [Neural Networks for MNIST Classification](./Neural_Networks_MNIST_Project)
+- Compared a feedforward network and a CNN over 5 runs each: **94.27%** vs. **99.03%** average test accuracy
+- **Tools:** Python, TensorFlow, Keras
 
 ---
-
-### 5. [Video Games Genre Sales Analysis](./Video_Games_Genre_Sales_Analysis)
-- **Description**: Analyzing video game sales trends and the impact of genres on sales performance.
-- **Key Features**:
-  - Data visualization of global sales by genre and platform.
-  - Analysis of regional sales trends (NA, EU, JP).
-  - Recommendations for game developers based on market trends.
-- **Tools**: Python, matplotlib, seaborn.
-
----
-
-### 6. [Binary Classification Project](./Binary_Classification_Project)
-- **Description**: Building and comparing binary classifiers for loan application data.
-- **Key Features**:
-  - Models: Decision Trees, k-NN, SVM, Linear Discriminant Analysis.
-  - Dimensionality reduction using Principal Component Analysis (PCA).
-  - Evaluation with error metrics like type 1 and type 2 error rates.
-- **Tools**: Python, sklearn, matplotlib.
-
----
-
-### 7. [Lazada Health Product Analysis Thailand](./Lazada_Health_Product_Analysis)
-- **Description**: Analyzing health and wellness products sold on Lazada Thailand to uncover trends in pricing, demand, and regional sales.
-- **Key Features**:
-  - Cleaned and prepared real-world e-commerce product data from Thailand
-  - Visualized sales performance by product category and location
-  - Compared pricing across product types and analyzed customer engagement
-  - Identified top-performing products and buyer behavior by city
-- **Tools**: Python, pandas, seaborn, matplotlib.
-
----
-
-### 8. [Real-Time Bitcoin Sentiment Analysis Using txtai](./Real-Time_Bitcoin_Sentiment_Analysis_Using_txtai)
-- **Description**: Built a real-time pipeline analyzing Bitcoin-related news sentiment and merging it with historical price data to explore sentiment as a leading indicator for short-term price movements.
-- **Key Features**:
-  - Used `txtai` for semantic sentiment scoring on live Bitcoin news headlines (via NewsAPI)
-  - Merged sentiment data with historical BTC price data from CoinGecko
-  - Cleaned and validated the time series (handled duplicate dates, resampled to daily frequency, forward-filled gaps) before modeling
-  - Applied ARIMA(5,1,2) to forecast Bitcoin prices 7 days ahead
-  - Discovered that negative news sentiment consistently preceded short-term price drops
-- **Tools**: Python, txtai, pandas, ARIMA (statsmodels), matplotlib, seaborn
---- 
 
 ## Skills Demonstrated
-- **Data Preprocessing**: Cleaning, feature engineering, and dealing with imbalanced datasets.
-- **Machine Learning**: Model training, evaluation, and hyperparameter tuning.
-- **Visualization**: Generating insightful plots and dashboards.
-- **Programming**: Python, SQL, Jupyter Notebooks.
-- **Collaboration**: Team projects and documentation for reproducibility.
-- **Bonus Skills**: NLP, real-time data pipelines, semantic search, Docker, forecasting.
-
-## How to Explore
-Each project folder contains:
-- A **README.md** file describing the project in detail.
-- Jupyter Notebooks (`.ipynb`) for code and analysis.
-- Supplementary files like datasets, SQL scripts, and visualizations.
-
-## About Me
-I am a master's student in Data Science at the University of Maryland, College Park, with expertise in machine learning, data analytics, and visualization. My portfolio showcases real-world applications of data science concepts, and I am excited to contribute my skills to impactful projects.
-
----
+- **Data cleaning & preparation:** missing values, time-series gaps, categorical encoding, class imbalance
+- **Analysis & communication:** exploratory analysis, segment comparisons, business recommendations
+- **SQL & data modeling:** star-schema design, fact and dimension tables, analytical queries
+- **Statistics & ML:** classification, model evaluation beyond accuracy (precision, recall, ROC-AUC, baselines), ARIMA forecasting, PCA
+- **NLP:** sentiment analysis, topic modeling
 
 ## Contact
-- **Email**: tehsinkung@gmail.com
-- **LinkedIn**: https://www.linkedin.com/in/te-hsin-kung-umd2025/
-- **GitHub**: https://github.com/cindy840823
+- **Email:** tehsinkung@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/te-hsin-kung-umd2025/
+- **GitHub:** https://github.com/cindy840823

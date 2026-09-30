@@ -30,19 +30,21 @@ This project analyzes the sales performance of video games based on various attr
   - A strong positive correlation exists between global sales and critic scores.
 
 ## Machine Learning Models
-- **Logistic Regression**:
-  - Accuracy: 84.8%
-  - Precision: 89%
-  - Recall: 95%
-  - Area Under Curve (AUC): 0.848
-- **Decision Tree**:
-  - Accuracy: 71.6%
-  - Precision: 88%
-  - Recall: 97%
-  - AUC: 0.716
-- **Neural Networks**:
-  - Accuracy: 87.4%
-  - Best overall performance for prediction tasks.
+**Target:** `Hit` = 1 if a game sold 1 million+ units globally. In the test set only 402 of 2,395 games (about 17%) are hits, so a model that always predicts "not a hit" would already score about 83% accuracy. Accuracy alone is misleading here; precision and recall on the **hit** class are what matter.
+
+Results on the 30% hold-out test set (after grid-search tuning):
+
+| Model | Accuracy | Hit precision | Hit recall |
+|---|---|---|---|
+| Naive baseline (always "not a hit") | ~83% | – | 0% |
+| Decision Tree (tuned) | 86% | 66% | 33% |
+| Logistic Regression (tuned for recall) | 86% | 63% | 40% |
+
+10-fold cross-validated accuracy for other models: Logistic Regression 0.81, Decision Tree 0.78, Neural Network (MLP) 0.82, Random Forest 0.81, Naive Bayes 0.29.
+
+**Takeaway:** the models beat the naive baseline only modestly and catch fewer than half of the real hits. Critic score, platform, genre, and publisher carry some signal, but predicting a hit before launch needs richer features (see Future Work).
+
+*Note: the PDF report was written from an earlier run of the analysis, so its figures differ slightly from the notebook. The numbers above match the current notebook outputs.*
 
 ## Insights
 - **Most Successful Genres**:
@@ -61,9 +63,9 @@ This project analyzes the sales performance of video games based on various attr
   - Expand into emerging markets to boost regional sales.
 
 ## Files
-- `Video_Games_Sales_Analysis.ipynb`: Jupyter Notebook containing the code for analysis and modeling.
-- `data/`: Contains the dataset used for this project.
-- [Analyzing Game Genres and Their Success (PDF Report)](https://github.com/cindy840823/Portfolio/blob/main/Video%20Games%20Genre%20Sales%20Analysis/Analyzing%20Game%20Genres%20and%20Their%20Success.pdf): A detailed report providing insights and analysis behind this project.
+- `Video_Games_Genre_Sales_Analysis.ipynb`: data cleaning, exploratory analysis, and modeling.
+- [Analyzing Game Genres and Their Success (PDF Report)](./Analyzing%20Game%20Genres%20and%20Their%20Success.pdf): written report on the analysis and findings.
+- Dataset: download `Video_Games_Sales_as_at_22_Dec_2016.csv` from Kaggle (link under Dataset) and place it in this folder before running the notebook.
 
 ## Future Work
 - Expand the dataset to include recent sales data for improved model accuracy.

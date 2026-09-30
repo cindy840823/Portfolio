@@ -51,10 +51,9 @@ Additionally, the project evaluates the impact of **Principal Component Analysis
 - **Libraries**: scikit-learn, numpy, pandas, matplotlib, seaborn
 
 ## Files
-- `Data603_Project_1.ipynb`: Contains code and analysis.
-- `data/TrainingData.csv`: Training dataset.
-- `data/TestingData.csv`: Testing dataset.
-- `visuals/`: Includes plots and charts generated during the analysis.
+- `Binary_Classification_Project.ipynb`: code, plots, and analysis.
+- `TrainingData.csv`: training dataset (900 samples).
+- `TestingData.csv`: testing dataset (400 samples).
 
 ## Insights
 - PCA significantly reduces computational complexity while maintaining accuracy for kNN and SVM.

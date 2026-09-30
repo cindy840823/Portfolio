@@ -28,71 +28,42 @@ This project explores machine learning techniques to predict the likelihood of h
    - Investigated correlations between risk factors and heart disease.
 3. **Modeling**:
    - Applied various machine learning algorithms, including:
-     - Logistic Regression
-     - Decision Trees
+     - Lasso Regression (feature selection)
      - Random Forest
-     - Gradient Boosting (XGBoost)
-   - Evaluated models using metrics like accuracy, precision, recall, F1-score, and ROC-AUC.
+     - Logistic Regression (grid-searched, class-weighted)
+   - Evaluated models using precision, recall, F1-score, and ROC-AUC, not accuracy alone.
 4. **Addressing Imbalance**:
    - Used SMOTE (Synthetic Minority Oversampling Technique) to balance the dataset and improve model performance.
 
 ## Files
-- **`Heart_Disease_Prediction_Analysis.ipynb`**:
-  - Notebook containing data preprocessing, EDA, and insights generation.
-- **`Heart_Disease_Modeling.ipynb`**:
-  - Notebook focused on training, testing, and evaluating machine learning models.
-- **`Heart_Disease_Group_Project_Notebook.ipynb`**:
-  - Collaborative notebook summarizing the team's collective analysis and findings.
-- **`Heart_Disease_Project_Documentation.docx`**:
-  - Detailed documentation of the project, including methodology and results.
-- **`data/Heart_Disease_Indicators.csv`**:
-  - Dataset containing the personal key indicators of heart disease.
-- **`visuals/`**:
-  - Contains charts and visualizations:
-    - Confusion matrices
-    - Feature importance plots
-    - Model accuracy comparisons
+- **`Heart_Disease_Prediction_Analysis.ipynb`**: preprocessing, EDA, and the main Random Forest and Logistic Regression results reported below.
+- **`Heart_Disease_Modeling_and_Visualizations.ipynb`**: Lasso feature selection, SMOTE experiments, confusion matrices, and visualizations.
+- **`Heart_Disease_Group_Project.ipynb`**: the team's combined notebook.
+- **`Heart_Disease_Project_Documentation.pdf`**: project documentation.
+- **Dataset**: download from [Kaggle](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease) (not stored in this repo because of its size).
 
 ## Results
-### Model Performance
-- **Logistic Regression**:
-  - Accuracy: 84.6%
-  - Precision: 78.5%
-  - Recall: 80.2%
-  - F1-Score: 79.3%
-  - ROC-AUC: 0.87
+Only about 9% of people in the test set (4,296 of 49,203) have heart disease, so a model that always predicts "no" would score about 91% accuracy while missing every patient. The metric that matters is **recall on the heart-disease class**: how many real cases the model catches.
 
-- **Decision Tree**:
-  - Accuracy: 81.3%
-  - Precision: 76.8%
-  - Recall: 77.9%
-  - F1-Score: 77.3%
-  - ROC-AUC: 0.84
+Results on the hold-out test set (`Heart_Disease_Prediction_Analysis.ipynb`):
 
-- **Random Forest**:
-  - Accuracy: 88.9%
-  - Precision: 83.2%
-  - Recall: 85.7%
-  - F1-Score: 84.4%
-  - ROC-AUC: 0.91
-
-- **XGBoost (Best Model)**:
-  - Accuracy: 91.0%
-  - Precision: 86.4%
-  - Recall: 88.5%
-  - F1-Score: 87.4%
-  - ROC-AUC: 0.93
+| Model | Accuracy | Heart-disease precision | Heart-disease recall | ROC-AUC |
+|---|---|---|---|---|
+| Random Forest (class-weighted) | 90% | 31% | 10% | 0.75 |
+| Logistic Regression (class-weighted, tuned) | 74% | 22% | **77%** | **0.83** |
 
 ### Key Observations
-1. **XGBoost** outperformed other models across all metrics, making it the best choice for predicting heart disease.
-2. **Random Forest** was a close second, balancing high accuracy with interpretability.
-3. **Logistic Regression** provided competitive results with simplicity and interpretability, making it ideal for scenarios requiring explainable models.
-4. **Decision Tree** had the lowest performance but highlighted important features, useful for quick insights.
+1. **Random Forest's 90% accuracy is misleading.** It is below the 91% "always no" baseline and catches only 1 in 10 heart-disease cases.
+2. **Logistic Regression is the more useful screening model.** It trades overall accuracy for catching 77% of real cases, which is the right trade-off when missing a patient is costlier than a false alarm.
+3. **Top predictors:** Lasso identified self-reported General Health as the strongest predictor; Random Forest and Logistic Regression both emphasized AgeCategory, ChestScan, and HadDiabetes.
+
+### Limitation
+In the SMOTE experiments, oversampling was applied before the train/test split, so synthetic samples reached the test set and those scores are optimistic. The results in the table above do not use SMOTE. The fix is to split first and apply SMOTE only to the training data.
 
 ## Insights
 1. Early intervention for high-risk individuals (e.g., smokers, diabetics) can reduce heart disease risk.
 2. Sleep time and physical activity are critical behavioral factors influencing heart health.
-3. Class imbalance techniques like SMOTE improved the sensitivity of the models.
+3. For imbalanced medical data, accuracy is the wrong yardstick: recall on the heart-disease class should drive model choice.
 
 ## Future Work
 - Expand the analysis to include external datasets for better generalization.
@@ -101,9 +72,8 @@ This project explores machine learning techniques to predict the likelihood of h
 
 ## Tools and Libraries
 - **Python**:
-  - Libraries: pandas, numpy, scikit-learn, matplotlib, seaborn, xgboost, imbalanced-learn.
+  - Libraries: pandas, numpy, scikit-learn, matplotlib, seaborn, imbalanced-learn.
 - **Jupyter Notebooks**: For EDA, modeling, and visualizations.
-- **Microsoft Word**: For documentation and reporting.
 
 ## Acknowledgments
 - **Team Members**:

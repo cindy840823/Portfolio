@@ -1,6 +1,6 @@
 # Real-Time Bitcoin Sentiment Analysis Using txtai
 
-This project evaluates whether real-time news sentiment can act as a leading indicator for short-term Bitcoin price movements. It combines semantic sentiment analysis with historical price data and a time-series forecasting model.
+This project explores whether real-time news sentiment can act as a leading indicator for short-term Bitcoin price movements. It combines semantic sentiment analysis with historical price data and a time-series forecasting model.
 
 ## Tools & Data Sources
 
@@ -19,9 +19,9 @@ This project evaluates whether real-time news sentiment can act as a leading ind
 5. **Visualize** — Plot Bitcoin price trends and a stacked bar chart of daily sentiment distribution.
 6. **Forecast** — Fit an ARIMA(5,1,2) model on 30 days of price history to forecast the next 7 days.
 
-## Key Finding
+## What This Shows
 
-Negative news sentiment consistently preceded short-term Bitcoin price drops, suggesting sentiment can act as an early-warning signal rather than simply tracking price after the fact.
+The pipeline lines up daily news sentiment against Bitcoin's price so the two can be compared visually, and produces a 7-day ARIMA price forecast. Testing whether sentiment actually *leads* price (for example, with lagged cross-correlation) is the next step; see Future Work.
 
 ## Setup
 
@@ -40,8 +40,10 @@ Then run the notebook (`txtai_API.ipynb`) top to bottom. `txtai_utils.py` contai
 | `txtai_API.ipynb` | Main notebook — full pipeline from data fetch to forecast |
 | `txtai_utils.py` | Helper functions for headline fetching, sentiment scoring, and ARIMA forecasting |
 
-## Possible Extensions
+## Future Work
 
-- Backtest whether acting on the sentiment signal would have improved returns vs. a buy-and-hold baseline
+- Collect sentiment over a longer window and test lead/lag relationships with cross-correlation at several lags
+- Compare the ARIMA forecast against a naive baseline (tomorrow's price = today's price) to measure whether it adds value
+- Replace ARIMA with a model that can use sentiment as an exogenous variable (e.g., ARIMAX)
+- Backtest whether acting on the sentiment signal would have beaten a buy-and-hold baseline
 - Expand beyond Bitcoin to other major cryptocurrencies for comparison
-- Replace ARIMA with a model that can incorporate sentiment as an exogenous variable (e.g., ARIMAX)

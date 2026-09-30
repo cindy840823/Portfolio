@@ -9,7 +9,7 @@ This project applies **Latent Semantic Analysis (LSA)** and text mining techniqu
 - Investigate the popularity and significance of NFTs in the gaming universe.
 
 ## Dataset
-- **File**: `NFT_Whitepapers - Sheet1.csv`
+- **File**: `NFT_Whitepapers.csv`
 - **Source**: Whitepapers collected from rarity.tools.
 - **Description**:
   - Contains details about various NFTs, including text extracted from their whitepapers.
@@ -41,7 +41,7 @@ This project applies **Latent Semantic Analysis (LSA)** and text mining techniqu
 
 ## Files
 - `Text_Mining_and_Topic_Modeling_with_LSA.ipynb`: Jupyter Notebook containing the full analysis and code.
-- `NFT_Whitepapers - Sheet1.csv`: Dataset used for the analysis.
+- `NFT_Whitepapers.csv`: Dataset used for the analysis.
 - `Report.pdf`: Detailed report summarizing the research findings and methodology.
 
 ## Visualizations
