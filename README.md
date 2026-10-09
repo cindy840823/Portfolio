@@ -24,21 +24,28 @@ I turn raw business data into answers people can act on: cleaning messy real-wor
 - Modeled a budget shift that would add about 116 approved conversions (+11%) at the same spend, with the assumptions stated
 - **Tools:** Python (pandas, matplotlib)
 
-### 3. [Video Games Genre Sales Analysis](./Video_Games_Genre_Sales_Analysis)
+### 3. [Cross-Platform Ads Performance: Google vs. Meta vs. TikTok](./Cross_Platform_Ads_Performance) *(simulated data)*
+**Question:** Which ad platforms and campaign types return the most revenue per dollar, where should budget move, and which weeks need attention?
+- Compared CTR, CPC, CPM, CVR, CPA and ROAS across 1,800 campaign-days; Google took 57% of spend but returned 41% of revenue (ROAS 3.47 vs. 7.62 on TikTok)
+- Showed that averaging row-level ROAS overstates performance by 32%, and calculated every ratio from totals
+- Modeled a 20% budget shift to TikTok (+9.7% revenue, upper estimate) and built a weekly monitor that flags weeks more than 20% below their 4-week ROAS baseline
+- **Tools:** Python (pandas, matplotlib)
+
+### 4. [Video Games Genre Sales Analysis](./Video_Games_Genre_Sales_Analysis)
 **Question:** What separates a hit game (1M+ global sales) from the rest?
 - Analyzed 16,717 titles across genre, platform, publisher, region (NA, EU, JP), and critic score
 - Found a strong positive link between critic scores and global sales; Action dominates game count and sales but is crowded
 - Built hit/no-hit classifiers and evaluated them against a naive baseline, since only about 17% of titles are hits
 - **Tools:** Python, pandas, scikit-learn, matplotlib, seaborn
 
-### 4. [Product Sales Data Warehouse](./Product_Sales_Data_Warehouse)
+### 5. [Product Sales Data Warehouse](./Product_Sales_Data_Warehouse)
 **Question:** How should product sales data be structured so the business can analyze trends, products, and customers?
 - Designed a star schema with a `FactProductSales` fact table and Customer, Product, Store, SalesPerson, and Date dimensions
 - Wrote the SQL to build and populate the warehouse, plus an ERD of table relationships and cardinalities
 - Queried sales trends and product performance to recommend seasonal promotions and gift-card campaigns
 - **Tools:** SQL Server (SSMS), SQL
 
-### 5. [Real-Time Bitcoin Sentiment Analysis Using txtai](./Real-Time_Bitcoin_Sentiment_Analysis_Using_txtai)
+### 6. [Real-Time Bitcoin Sentiment Analysis Using txtai](./Real-Time_Bitcoin_Sentiment_Analysis_Using_txtai)
 **Question:** Can news sentiment help explain short-term Bitcoin price movements?
 - Built a pipeline that pulls live Bitcoin headlines (NewsAPI), scores their sentiment with txtai, and merges them with historical prices (CoinGecko)
 - Cleaned the time series (duplicate dates, daily resampling, forward-filled gaps) and forecast prices 7 days ahead with ARIMA(5,1,2)
@@ -49,20 +56,20 @@ I turn raw business data into answers people can act on: cleaning messy real-wor
 
 ## Machine Learning & NLP Projects
 
-### 6. [Heart Disease Risk Prediction](./Heart_Disease_Analysis_Project) *(team project)*
+### 7. [Heart Disease Risk Prediction](./Heart_Disease_Analysis_Project) *(team project)*
 - Modeled heart disease risk from 300,000+ CDC BRFSS survey responses, where only about 9% of respondents have heart disease
 - Chose recall on the heart-disease class over raw accuracy: balanced Logistic Regression caught 77% of cases (ROC-AUC 0.83), while Random Forest reached 90% accuracy but caught only 10%
 - **Tools:** Python, scikit-learn, imbalanced-learn (SMOTE), Lasso, matplotlib, seaborn
 
-### 7. [Text Mining and Topic Modeling with LSA](./Text_Mining_and_Topic_Modeling_with_LSA)
+### 8. [Text Mining and Topic Modeling with LSA](./Text_Mining_and_Topic_Modeling_with_LSA)
 - Applied Latent Semantic Analysis to NFT whitepapers to surface key themes, with a focus on gaming
 - **Tools:** Python, scikit-learn, pandas, wordcloud
 
-### 8. [Binary Classification with PCA](./Binary_Classification_Project)
+### 9. [Binary Classification with PCA](./Binary_Classification_Project)
 - Compared LDA, Decision Tree, k-NN, and SVM on loan-approval data using type 1 and type 2 error rates, with and without PCA
 - **Tools:** Python, scikit-learn, pandas, matplotlib
 
-### 9. [Neural Networks for MNIST Classification](./Neural_Networks_MNIST_Project)
+### 10. [Neural Networks for MNIST Classification](./Neural_Networks_MNIST_Project)
 - Compared a feedforward network and a CNN over 5 runs each: **94.27%** vs. **99.03%** average test accuracy
 - **Tools:** Python, TensorFlow, Keras
 
